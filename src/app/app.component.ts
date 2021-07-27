@@ -7,8 +7,6 @@ import { EmployeeService } from './services/Employee/employee.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'rh-crud';
-
   constructor(
     private employeeService: EmployeeService
   ) {}
