@@ -1,0 +1,38 @@
+.employee-list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.employee {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 8px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 18px;
+}
+
+.employee .info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px 12px;
+}
+
+.employee .actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.employee .actions button {
+  width: 100px;
+  height: 35px;
+  background-color: white;
+  box-shadow: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 0px 2px;
+}

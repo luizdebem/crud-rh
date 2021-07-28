@@ -8,13 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { ListComponent } from './components/list/list.component';
 import { FormComponent } from './components/form/form.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { EmployeeListComponent } from './components/shared/employee-list/employee-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     FormComponent,
-    NavbarComponent
+    NavbarComponent,
+    EmployeeListComponent
   ],
   imports: [
     BrowserModule,
