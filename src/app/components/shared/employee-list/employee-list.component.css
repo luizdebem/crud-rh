@@ -36,3 +36,17 @@
   border-radius: 5px;
   margin: 0px 2px;
 }
+
+@media (max-width: 735px) {
+  .employee {
+    flex-direction: column;
+  }
+
+  .employee .info {
+    margin-bottom: 10px;
+  }
+
+  .employee .actions button {
+    width: 70px;
+  }
+}
