@@ -1,0 +1,35 @@
+.navbar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  padding: 0px 15px;
+}
+
+.nav-items span {
+  font-size: 18px;
+  padding: 5px 30px;
+  margin: 0px 5px;
+}
+
+a:link {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+a:visited {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+.current {
+  border-bottom: 3px double black;
+}
+
+@media (max-width: 690px) {
+  .navbar-container {
+    flex-direction: column;
+    padding: 15px 15px;
+  }
+}

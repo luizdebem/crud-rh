@@ -1,0 +1,7 @@
+<nav class="navbar-container">
+  <h1 class="title">Colaboradores da Senior</h1>
+  <div class="nav-items">
+    <span [ngClass]="{ 'current': isActive('/') }"><a routerLink="/">Lista</a></span>
+    <span [ngClass]="{ 'current': isActive('/form') }"><a routerLink="/form">Cadastro</a></span>
+  </div>
+</nav>

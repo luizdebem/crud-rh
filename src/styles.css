@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+  font-family: 'Roboto';
+  margin: 15px 30px;
+}
+
+@media (max-width: 690px) {
+  html, body {
+    margin: 5px
+  }
+}
