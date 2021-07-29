@@ -45,7 +45,14 @@ export class FormComponent implements OnInit {
       ...this.employeeForm.value
     }
 
-    await this.employeeService.createEmployee(employee).toPromise();
+    try {
+      await this.employeeService.createEmployee(employee).toPromise();
+      alert('Colaborador cadastrado com sucesso.');
+      this.cleanForm();
+    } catch (error) {
+      alert('Ocorreu um erro ao cadastrar o colaborador :(');
+      console.error('Error on post request to /employees', error);
+    }
   }
 
   cleanForm(): void {

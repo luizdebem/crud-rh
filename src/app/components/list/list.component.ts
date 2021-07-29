@@ -17,8 +17,12 @@ export class ListComponent implements OnInit {
   }
 
   async fetchEmployees(): Promise<void> {
-    const res = await this.employeeService.listEmployees().toPromise() as any;
-    this.employeeList = res;
+    try {
+      const res = await this.employeeService.listEmployees().toPromise() as any;
+      this.employeeList = res;
+    } catch (error) {
+      console.error('Error while fetching employees from backend.', error);
+    }
   }
 
 }
