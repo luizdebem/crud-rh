@@ -7,12 +7,7 @@ import { EmployeeService } from './services/Employee/employee.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(
-    private employeeService: EmployeeService
-  ) {}
+  constructor() {}
 
-  async ngOnInit() {
-    const employees = await this.employeeService.listEmployees().toPromise();
-    console.log(employees);
-  }
+  async ngOnInit() {}
 }

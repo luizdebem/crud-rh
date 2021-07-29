@@ -14,10 +14,8 @@
   margin: 18px;
 }
 
-.employee .info {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 5px 12px;
+.info span {
+  padding-left: 15px;
 }
 
 .employee .actions {

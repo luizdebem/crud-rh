@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
+import { EmployeeService } from 'src/app/services/Employee/employee.service';
 import { FormValidationService } from 'src/app/services/FormValidation/form-validation.service';
 
 @Component({
@@ -26,7 +27,9 @@ export class FormComponent implements OnInit {
 
   submitted = false;
 
-  constructor(private fb: FormBuilder, private router: Router, private customValidation: FormValidationService) { }
+  constructor(private fb: FormBuilder, private router: Router,
+    private customValidation: FormValidationService,
+    private employeeService: EmployeeService) { }
 
   ngOnInit(): void { }
 
@@ -34,9 +37,15 @@ export class FormComponent implements OnInit {
     return this.employeeForm.controls;
   }
 
-  submitForm(): void {
+  async submitForm(): Promise<void> {
     this.submitted = true;
     if (this.employeeForm.invalid) return;
+
+    const employee = {
+      ...this.employeeForm.value
+    }
+
+    await this.employeeService.createEmployee(employee).toPromise();
   }
 
   cleanForm(): void {

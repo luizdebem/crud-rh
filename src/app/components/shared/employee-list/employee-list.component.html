@@ -1,10 +1,8 @@
 <div class="employee-list-container">
-  <div class="employee">
+  <div *ngFor="let employee of employeeList" class="employee">
     <div class="info">
-      <span>Colaborador:</span>
-      <span>9999 - Luiz</span>
-      <span>Nascimento:</span>
-      <span>14/11/1999</span>
+      <div>Colaborador: <span>{{ employee.id }} - {{ employee.fullName }}</span></div>
+      <div>Nascimento: <span>{{ employee.birthdate }}</span></div>
     </div>
     <div class="actions">
       <button>Visualizar</button>
