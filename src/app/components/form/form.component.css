@@ -27,7 +27,13 @@
 }
 
 .input input {
+  height: 25px;
+  font-size: 14px;
   margin-left: 0;
+}
+
+.input label {
+  margin-bottom: 12px;
 }
 
 .form-actions {

@@ -1,46 +1,47 @@
 <app-navbar></app-navbar>
 <main class="form-container">
   <h2>Formulário de Cadastro</h2>
+  <p>Todos os campos são obrigatórios.</p>
 
-  <div class="form">
+  <div class="form" [formGroup]="employeeForm">
     <div class="form-group">
       <div class="input">
         <label>Código</label>
-        <input type="text">
+        <input formControlName="id" type="text">
       </div>
       <div class="input">
         <label>Nome completo</label>
-        <input type="text">
+        <input formControlName="fullName" type="text">
       </div>
       <div class="input">
         <label>Apelido</label>
-        <input type="text">
+        <input formControlName="nickname" type="text">
       </div>
     </div>
 
     <div class="form-group">
       <div class="input">
         <label>Nome do pai/mãe</label>
-        <input type="text">
+        <input formControlName="parentName" type="text">
       </div>
       <div class="input">
         <label>Nome do pai/mãe</label>
-        <input type="text">
+        <input formControlName="otherParentName" type="text">
       </div>
     </div>
 
     <div class="form-group">
       <div class="input">
         <label>CPF</label>
-        <input type="text">
+        <input formControlName="cpf" type="text" mask="000.000.000-00">
       </div>
       <div class="input">
         <label>Nascimento</label>
-        <input type="text">
+        <input formControlName="birthdate" type="date" max="{{ today }}">
       </div>
       <div class="input">
         <label>Cargo</label>
-        <input type="text">
+        <input formControlName="role" type="text">
       </div>
     </div>
   </div>
@@ -49,9 +50,9 @@
 <div class="form-actions">
 
   <div class="actions">
-    <button>Salvar</button>
-    <button>Limpar</button>
-    <button>Cancelar</button>
+    <button (click)="submitForm()">Salvar</button>
+    <button (click)="cleanForm()">Limpar</button>
+    <button (click)="cancel()">Cancelar</button>
   </div>
 
 </div>

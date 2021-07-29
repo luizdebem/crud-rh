@@ -10,6 +10,9 @@ import { FormComponent } from './components/form/form.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { EmployeeListComponent } from './components/shared/employee-list/employee-list.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +24,9 @@ import { EmployeeListComponent } from './components/shared/employee-list/employe
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
