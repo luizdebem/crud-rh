@@ -62,3 +62,8 @@
   border-radius: 5px;
   margin: 0px 2px;
 }
+
+.error-label {
+  font-size: 10px;
+  color: red;
+}

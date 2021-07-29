@@ -8,14 +8,23 @@
       <div class="input">
         <label>Código</label>
         <input formControlName="id" type="text">
+        <div *ngIf="submitted && fc.id.errors">
+          <span class="error-label" *ngIf="fc.id.errors.required">Campo obrigatório.</span>
+        </div>
       </div>
       <div class="input">
         <label>Nome completo</label>
         <input formControlName="fullName" type="text">
+        <div *ngIf="submitted && fc.fullName.errors">
+          <span class="error-label" *ngIf="fc.fullName.errors.required">Campo obrigatório.</span>
+        </div>
       </div>
       <div class="input">
         <label>Apelido</label>
         <input formControlName="nickname" type="text">
+        <div *ngIf="submitted && fc.nickname.errors">
+          <span class="error-label" *ngIf="fc.nickname.errors.required">Campo obrigatório.</span>
+        </div>
       </div>
     </div>
 
@@ -23,10 +32,16 @@
       <div class="input">
         <label>Nome do pai/mãe</label>
         <input formControlName="parentName" type="text">
+        <div *ngIf="submitted && fc.parentName.errors">
+          <span class="error-label" *ngIf="fc.parentName.errors.required">Campo obrigatório.</span>
+        </div>
       </div>
       <div class="input">
         <label>Nome do pai/mãe</label>
         <input formControlName="otherParentName" type="text">
+        <div *ngIf="submitted && fc.otherParentName.errors">
+          <span class="error-label" *ngIf="fc.otherParentName.errors.required">Campo obrigatório.</span>
+        </div>
       </div>
     </div>
 
@@ -34,14 +49,25 @@
       <div class="input">
         <label>CPF</label>
         <input formControlName="cpf" type="text" mask="000.000.000-00">
+        <div *ngIf="submitted && fc.cpf.errors">
+          <span class="error-label" *ngIf="fc.cpf.errors.required">Campo obrigatório.</span>
+          <span class="error-label" *ngIf="fc.cpf.errors.minlength">Mínimo de 11 caracteres</span>
+        </div>
       </div>
       <div class="input">
         <label>Nascimento</label>
         <input formControlName="birthdate" type="date" max="{{ today }}">
+        <div *ngIf="submitted && fc.birthdate.errors">
+          <span class="error-label" *ngIf="fc.birthdate.errors.required">Campo obrigatório.</span>
+          <span class="error-label" *ngIf="fc.birthdate.errors.greater_than_today">Data inválida!</span>
+        </div>
       </div>
       <div class="input">
         <label>Cargo</label>
         <input formControlName="role" type="text">
+        <div *ngIf="submitted && fc.role.errors">
+          <span class="error-label" *ngIf="fc.role.errors.required">Campo obrigatório.</span>
+        </div>
       </div>
     </div>
   </div>
