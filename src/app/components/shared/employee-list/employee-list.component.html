@@ -1,4 +1,9 @@
 <div class="employee-list-container">
+  <div class="empty" *ngIf="!employeeList.length">
+    <span>Não existem colaboradores cadastrados no momento.</span>
+    <a routerLink="form">Cadastre um agora mesmo!</a>
+  </div>
+
   <div *ngFor="let employee of employeeList" class="employee">
     <div class="info">
       <div>Colaborador: <span>{{ employee.id }} - {{ employee.fullName }}</span></div>
@@ -7,7 +12,7 @@
     <div class="actions">
       <button>Visualizar</button>
       <button>Editar</button>
-      <button>Excluir</button>
+      <button (click)="deleteEmployee(employee.id)">Excluir</button>
     </div>
   </div>
 </div>

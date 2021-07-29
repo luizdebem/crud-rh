@@ -35,6 +35,14 @@
   margin: 0px 2px;
 }
 
+.empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 100px 0px;
+}
+
 @media (max-width: 735px) {
   .employee {
     flex-direction: column;
