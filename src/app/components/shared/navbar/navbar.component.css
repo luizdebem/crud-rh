@@ -28,6 +28,10 @@ a:visited {
   border-bottom: 3px double black;
 }
 
+h1 {
+  cursor: pointer;
+}
+
 @media (max-width: 690px) {
   .navbar-container {
     flex-direction: column;

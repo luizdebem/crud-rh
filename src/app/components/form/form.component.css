@@ -67,3 +67,13 @@
   font-size: 10px;
   color: red;
 }
+
+@media (max-width: 600px) {
+  .form-group {
+    flex-direction: column;
+  }
+
+  .form-group .input {
+    padding: initial;
+  }
+}
