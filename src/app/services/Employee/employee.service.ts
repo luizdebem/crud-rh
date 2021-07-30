@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Employee } from 'src/app/interfaces/Employee';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +17,11 @@ export class EmployeeService {
     return this.http.get(this.URI);
   }
 
-  createEmployee(employee) {
+  createEmployee(employee: Employee) {
     return this.http.post(this.URI, employee);
   }
 
-  editEmployee(id, data) {
+  editEmployee(id, data: Employee) {
     return this.http.patch(`${this.URI}/${id}`, data);
   }
 

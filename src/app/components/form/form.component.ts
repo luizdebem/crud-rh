@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { FormActions } from 'src/app/enums/FormActions';
+import { Employee } from 'src/app/interfaces/Employee';
 import { EmployeeService } from 'src/app/services/Employee/employee.service';
 import { FormValidationService } from 'src/app/services/FormValidation/form-validation.service';
 
@@ -30,14 +31,15 @@ export class FormComponent implements OnInit {
 
   isViewOnly = false;
   isEdit = false;
-  employeeToBeEdited: any;
+  employeeToBeEdited: Employee;
 
   constructor(private fb: FormBuilder, private router: Router,
     private customValidation: FormValidationService,
     private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
-    const { employee, action } = history.state;
+    const obj: { employee: Employee, action: FormActions } = history.state;
+    const { employee, action } = obj;
 
     if (employee && action) {
       if (action === FormActions.EDIT) {
@@ -63,14 +65,14 @@ export class FormComponent implements OnInit {
     this.submitted = true;
     if (this.employeeForm.invalid) return;
 
-    const employee = {
+    const employee: Employee = {
       ...this.employeeForm.value
     }
 
     this.isEdit ? this.editEmployee(employee) : this.saveEmployee(employee);
   }
 
-  async saveEmployee(employee) {
+  async saveEmployee(employee: Employee) {
     try {
       await this.employeeService.createEmployee(employee).toPromise();
       alert('Colaborador cadastrado com sucesso.');
@@ -81,7 +83,7 @@ export class FormComponent implements OnInit {
     }
   }
 
-  async editEmployee(employee) {
+  async editEmployee(employee: Employee) {
     employee = {
       id: this.employeeToBeEdited.id,
       ...employee,
