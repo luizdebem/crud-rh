@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
+import { FormActions } from 'src/app/enums/FormActions';
 import { EmployeeService } from 'src/app/services/Employee/employee.service';
 import { FormValidationService } from 'src/app/services/FormValidation/form-validation.service';
 
@@ -39,12 +40,12 @@ export class FormComponent implements OnInit {
     const { employee, action } = history.state;
 
     if (employee && action) {
-      if (action === 'edit') {
+      if (action === FormActions.EDIT) {
         this.isEdit = true;
         this.fc.id.disable();
       }
   
-      if (action === 'view') {
+      if (action === FormActions.VIEW) {
         this.isViewOnly = true;
         this.employeeForm.disable();
       }

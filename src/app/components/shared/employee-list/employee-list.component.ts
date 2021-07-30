@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormActions } from 'src/app/enums/FormActions';
 import { EmployeeService } from 'src/app/services/Employee/employee.service';
 
 @Component({
@@ -17,11 +18,11 @@ export class EmployeeListComponent implements OnInit {
   }
 
   viewEmployee(employee) {
-    this.router.navigate(['form'], { state: { action: 'view', employee } });
+    this.router.navigate(['form'], { state: { action: FormActions.VIEW, employee } });
   }
 
   editEmployee(employee) {
-    this.router.navigate(['form'], { state: { action: 'edit', employee } });
+    this.router.navigate(['form'], { state: { action: FormActions.EDIT, employee } });
   }
 
   async deleteEmployee(id) {
