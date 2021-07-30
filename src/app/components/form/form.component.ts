@@ -99,6 +99,9 @@ export class FormComponent implements OnInit {
   cleanForm(): void {
     this.employeeForm.reset();
     this.submitted = false;
+    if (this.isEdit) {
+      this.fc.id.setValue(this.employeeToBeEdited.id);
+    }
   }
 
   cancel(): void {
