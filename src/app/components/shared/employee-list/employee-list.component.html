@@ -10,8 +10,8 @@
       <div>Nascimento: <span>{{ employee.birthdate }}</span></div>
     </div>
     <div class="actions">
-      <button>Visualizar</button>
-      <button>Editar</button>
+      <button (click)="viewEmployee(employee)">Visualizar</button>
+      <button (click)="editEmployee(employee)">Editar</button>
       <button (click)="deleteEmployee(employee.id)">Excluir</button>
     </div>
   </div>

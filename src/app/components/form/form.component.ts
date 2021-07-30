@@ -27,11 +27,32 @@ export class FormComponent implements OnInit {
 
   submitted = false;
 
+  isViewOnly = false;
+  isEdit = false;
+  employeeToBeEdited: any;
+
   constructor(private fb: FormBuilder, private router: Router,
     private customValidation: FormValidationService,
     private employeeService: EmployeeService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    const { employee, action } = history.state;
+
+    if (employee && action) {
+      if (action === 'edit') {
+        this.isEdit = true;
+        this.fc.id.disable();
+      }
+  
+      if (action === 'view') {
+        this.isViewOnly = true;
+        this.employeeForm.disable();
+      }
+
+      this.employeeToBeEdited = employee;
+      this.employeeForm.setValue({...employee});
+    }
+  }
 
   get fc(): any {
     return this.employeeForm.controls;
@@ -45,6 +66,10 @@ export class FormComponent implements OnInit {
       ...this.employeeForm.value
     }
 
+    this.isEdit ? this.editEmployee(employee) : this.saveEmployee(employee);
+  }
+
+  async saveEmployee(employee) {
     try {
       await this.employeeService.createEmployee(employee).toPromise();
       alert('Colaborador cadastrado com sucesso.');
@@ -52,6 +77,22 @@ export class FormComponent implements OnInit {
     } catch (error) {
       alert('Ocorreu um erro ao cadastrar o colaborador :(');
       console.error('Error on post request to /employees', error);
+    }
+  }
+
+  async editEmployee(employee) {
+    employee = {
+      id: this.employeeToBeEdited.id,
+      ...employee,
+    }
+
+    try {
+      await this.employeeService.editEmployee(this.employeeToBeEdited.id, employee).toPromise();
+      alert('Colaborador editado com sucesso.');
+      this.router.navigate(['']);
+    } catch (error) {
+      alert('Ocorreu um erro ao editar o colaborador :(');
+      console.error('Error on patch request to /employees', error);
     }
   }
 

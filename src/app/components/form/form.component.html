@@ -76,8 +76,8 @@
 <div class="form-actions">
 
   <div class="actions">
-    <button (click)="submitForm()">Salvar</button>
-    <button (click)="cleanForm()">Limpar</button>
+    <button [disabled]="isViewOnly" (click)="submitForm()">Salvar</button>
+    <button [disabled]="isViewOnly" (click)="cleanForm()">Limpar</button>
     <button (click)="cancel()">Cancelar</button>
   </div>
 

@@ -20,6 +20,10 @@ export class EmployeeService {
     return this.http.post(this.URI, employee);
   }
 
+  editEmployee(id, data) {
+    return this.http.patch(`${this.URI}/${id}`, data);
+  }
+
   deleteEmployeeById(id) {
     return this.http.delete(`${this.URI}/${id}`);
   }
